@@ -18,6 +18,8 @@ brady = Player.create(name: "Tom Brady", position: "QB")
 aaron = Player.create(name: "Aaron Rogers", position: "QB")
 obj = Player.create(name: "Odell Beckham Jr.", position: "WR")
 
-transaction1 = Transaction.create(player: brady, team: peppy_pats)
-transaction2 = Transaction.create(player: aaron, team: ginos_giants)
-transaction3 = Transaction.create(player: obj, team: ginos_giants)
+draft1 = Draft.create(draft_time: Time.now, league: league1)
+
+transaction1 = Transaction.create(player: brady, team: peppy_pats, draft: draft1)
+transaction2 = Transaction.create(player: aaron, team: ginos_giants, draft: draft1)
+transaction3 = Transaction.create(player: obj, team: ginos_giants, draft: draft1)
