@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if session[:id] %>
+    <a href="#">LOGOUT</a>
+    <% end %>
     <%= yield %>
   </body>
 </html>
