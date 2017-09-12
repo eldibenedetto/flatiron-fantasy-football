@@ -1,1 +1,17 @@
-<%= @user.username %>
+<h1><%= @user.username %></h1>
+
+<div class= "index">
+  <h3>My Leagues </h3>
+  <% @leagues.each do |league| %>
+    <%= league.name %>
+  <% end %>
+</div>
+
+<div class= "index">
+  <h3>My Teams </h3>
+  <% @teams.each do |team| %>
+    <%= team.name %>
+  <% end %>
+</div>
+
+<% #button_to "Create a League", new_league_path %>

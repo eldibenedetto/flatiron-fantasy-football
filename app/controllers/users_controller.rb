@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @leagues = @user.leagues
+    @teams = @user.teams
   end
 
   def user_params
