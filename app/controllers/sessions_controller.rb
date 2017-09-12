@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    session.delete [:user_id]
+    session.delete :user_id
     redirect_to welcome_path
   end
 

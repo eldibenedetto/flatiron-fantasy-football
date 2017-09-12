@@ -1,0 +1,7 @@
+<h1><%= @draft.league.name %> </h1>
+
+<h3> Draft Time: <%= @draft.draft_time %> </h3>
+
+<% if current_user == @draft.league.owner %>
+<%= link_to "Start Draft", start_draft_path(@draft.league,@draft ) %>
+<% end %>

@@ -1,7 +1,18 @@
-<%= @league.name %>
+<h1> <%= @league.name %> </h1>
 
+<h2> Draft Time: </h2>
+  <% if @draft %>
+  <h4> <%= @draft.draft_time %> </h4>
+  <% end %>
+
+<h3> Teams: </h3>
 <% @teams.each do |team| %>
   <ul>
-  <%= (link_to team.name, league_team_path(team)) + " - " + (link_to team.user.username, user_path(team.user)) %>
+    <%= link_to team.name, league_team_path(@league,team)%> - <%= link_to team.user.username, user_path(team.user) %>
   </ul>
+<% end %>
+
+<% if current_user == @league.owner %>
+  <%= button_to "Edit League", edit_league_path(@league), method: :get %>
+  <%= button_to "Set Draft Time", new_league_draft_path(@league), method: :get %>
 <% end %>

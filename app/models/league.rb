@@ -8,5 +8,6 @@ class League < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: true
+  validates :owner_id, presence: true
 
 end

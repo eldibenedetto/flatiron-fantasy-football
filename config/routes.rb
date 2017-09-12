@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#logout', as: 'logout'
   resources :users
   resources :leagues do
-    resources :teams
-    resources :drafts do
+    resources :teams do
       resources :transactions
     end
+    resources :drafts
   end
+
+  get "/leagues/league_id/drafts/:id/start_draft", to: 'drafts#start_draft', as: 'start_draft'
 end

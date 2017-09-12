@@ -3,19 +3,21 @@
 <div class= "index">
   <h3>My Leagues </h3>
   <% @leagues.each do |league| %>
-    <%= league.name %>
+    <ul>
+    <%= link_to league.name, league_path(league) %>
+  </ul>
   <% end %>
 </div>
 
 <div class= "index">
   <h3>My Teams </h3>
   <% @teams.each do |team| %>
-    <%= team.name %>
+    <ul>
+    <%= link_to team.name, league_team_path(team.league, team) %>
+  </ul>
   <% end %>
 </div>
 
 <% if current_user.id == @user.id %>
   <%= button_to "Create a League", new_league_path, method: :get%>
-
-  <%= button_to "Logout", logout_path, method: :delete %>
 <% end %>

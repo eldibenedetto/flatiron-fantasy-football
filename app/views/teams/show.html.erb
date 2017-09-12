@@ -1,0 +1,20 @@
+<h1><%= @team.name %></h1>
+<h4>League: <%= link_to @league.name, @league %>
+  <h4>User: <%= link_to @user.username, @user %>
+<% #iterate through team.players & print player.position: player.name %>
+<ul>
+  <li> QB </li>
+  <li> QB </li>
+  <li> RB </li>
+  <li> RB </li>
+  <li> WR </li>
+  <li> WR </li>
+  <li> TE </li>
+  <li> F </li>
+  <li> K </li>
+</ul>
+
+
+<% if current_user == @user %>
+  <%= button_to "Edit Team Name", edit_league_team_path(@league, @team), method: :get %>
+<% end %>

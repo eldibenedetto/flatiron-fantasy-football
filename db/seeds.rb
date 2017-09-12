@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# 
+#
 # gino = User.create(username: "Eugene",password_digest: "Turtles")
 # pep = User.create(username: "Natalie",password_digest: "Patriots")
 # bobby = User.create(username: "Bobby", password_digest: "Apples")
@@ -18,9 +18,16 @@
 # ginos_giants = Team.create(name: "Ginos Giants", user: gino, league: league1)
 # peppy_pats = Team.create(name: "Peppy Pats", user: pep, league: league1)
 #
-# brady = Player.create(name: "Tom Brady", position: "QB")
-# aaron = Player.create(name: "Aaron Rogers", position: "QB")
-# obj = Player.create(name: "Odell Beckham Jr.", position: "WR")
+Player.create(name: "Tom Brady", position: "QB")
+Player.create(name: "Aaron Rogers", position: "QB")
+Player.create(name: "Odell Beckham Jr.", position: "WR")
+Player.create(name: "Adrian Peterson", position: "RB")
+Player.create(name: "Evan Engram", position: "TE")
+Player.create(name: "Darren Sproles", position: "F")
+Player.create(name: "Sebastian Janikowski", position: "K")
+Player.create(name: "Jamal Charles", position: "RB")
+Player.create(name: "Julio Jones", position: "WR")
+Player.create(name: "Jimmy Graham", position: "TE")
 #
 # draft1 = Draft.create(draft_time: Time.now, league: league1)
 #

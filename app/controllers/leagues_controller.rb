@@ -15,7 +15,7 @@ class LeaguesController < ApplicationController
       @team.save
       params[:users].values.each do |username|
           user = User.find_by(username: username)
-          Team.create(user: user, name: "Login to Change Team Name", league: @league)
+          Team.create(user: user, name: "Added to #{@league.name} - Edit Team Name", league: @league)
         end
       redirect_to league_path(@league)
     else
@@ -26,8 +26,22 @@ class LeaguesController < ApplicationController
   def show
     @league = League.find(params[:id])
     @teams = @league.teams
+    @draft = @league.draft
   end
 
+  def edit
+    @league = League.find(params[:id])
+  end
+
+  def update
+    @league = League.find(params[:id])
+    if @league.update(league_params)
+
+      redirect_to league_path(@league)
+    else
+      redirect_to edit_league_path(@league)
+    end
+  end
 
 
   private

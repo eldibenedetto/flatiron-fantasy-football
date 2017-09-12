@@ -1,0 +1,10 @@
+<h1> <%= @league.name %> Draft Page </h1>
+
+<h4> Draft Order </h4>
+<ul>
+  <% @league.teams.each do |team| %>
+  <li> <%= team.user.username %> </li>
+  <% end %>
+</ul>
+
+<%= button_to "1st Overall Pick", new_league_team_transaction_path(@league, @league.teams.first), method: :get %> 
