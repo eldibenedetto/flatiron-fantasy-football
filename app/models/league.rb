@@ -6,4 +6,7 @@ class League < ApplicationRecord
   has_many :transactions, through: :teams
   has_many :players, through: :transactions
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+
 end

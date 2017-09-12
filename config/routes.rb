@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#login', as: 'login'
   delete '/logout', to: 'sessions#logout', as: 'logout'
   resources :users
-
+  resources :leagues do
+    resources :teams
+    resources :drafts do
+      resources :transactions
+    end
+  end
 end

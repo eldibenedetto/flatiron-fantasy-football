@@ -3,7 +3,7 @@ class CreateLeagues < ActiveRecord::Migration[5.1]
     create_table :leagues do |t|
       t.string :name
       t.integer :owner_id
-
+  
       t.timestamps
     end
   end

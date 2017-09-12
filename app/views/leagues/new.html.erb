@@ -1,0 +1,19 @@
+<h1>Create a League</h1>
+
+<%= form_tag leagues_path do |f| %>
+  <%= label_tag "Name" %>
+  <%= text_field_tag 'league[name]' %> <br>
+
+  <%= label_tag "Create Your Team" %>
+  <%= text_field_tag 'team[name]' %> <br>
+  <h4>Invite Users</h4>
+  <%= label_tag "User 1" %>
+  <%= text_field_tag 'users[username1]' %><br>
+  <%= label_tag "User 2" %>
+  <%= text_field_tag 'users[username2]' %><br>
+  <%= label_tag "User 3" %>
+  <%= text_field_tag 'users[username3]' %><br>
+  <%= label_tag "User 4" %>
+  <%= text_field_tag 'users[username4]' %><br>
+  <%= submit_tag "Create League"%>
+<% end %>

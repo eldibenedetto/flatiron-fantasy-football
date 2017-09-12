@@ -14,4 +14,8 @@
   <% end %>
 </div>
 
-<% #button_to "Create a League", new_league_path %>
+<% if current_user.id == @user.id %>
+  <%= button_to "Create a League", new_league_path, method: :get%>
+
+  <%= button_to "Logout", logout_path, method: :delete %>
+<% end %>

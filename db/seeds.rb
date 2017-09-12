@@ -5,21 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-gino = User.create(username: "Eugene",password_digest: "Turtles")
-pep = User.create(username: "Natalie",password_digest: "Patriots")
-
-league1 = League.create(name: "The League", owner: pep)
-
-ginos_giants = Team.create(name: "Ginos Giants", user: gino, league: league1)
-peppy_pats = Team.create(name: "Peppy Pats", user: pep, league: league1)
-
-brady = Player.create(name: "Tom Brady", position: "QB")
-aaron = Player.create(name: "Aaron Rogers", position: "QB")
-obj = Player.create(name: "Odell Beckham Jr.", position: "WR")
-
-draft1 = Draft.create(draft_time: Time.now, league: league1)
-
-transaction1 = Transaction.create(player: brady, team: peppy_pats, draft: draft1)
-transaction2 = Transaction.create(player: aaron, team: ginos_giants, draft: draft1)
-transaction3 = Transaction.create(player: obj, team: ginos_giants, draft: draft1)
+# 
+# gino = User.create(username: "Eugene",password_digest: "Turtles")
+# pep = User.create(username: "Natalie",password_digest: "Patriots")
+# bobby = User.create(username: "Bobby", password_digest: "Apples")
+# marco = User.create(username: "Marco", password_digest: "Broncos")
+# jen = User.create(username: "Jen", password_digest: "Password")
+#
+#
+# league1 = League.create(name: "The League", owner: pep)
+#
+# ginos_giants = Team.create(name: "Ginos Giants", user: gino, league: league1)
+# peppy_pats = Team.create(name: "Peppy Pats", user: pep, league: league1)
+#
+# brady = Player.create(name: "Tom Brady", position: "QB")
+# aaron = Player.create(name: "Aaron Rogers", position: "QB")
+# obj = Player.create(name: "Odell Beckham Jr.", position: "WR")
+#
+# draft1 = Draft.create(draft_time: Time.now, league: league1)
+#
+# transaction1 = Transaction.create(player: brady, team: peppy_pats, draft: draft1)
+# transaction2 = Transaction.create(player: aaron, team: ginos_giants, draft: draft1)
+# transaction3 = Transaction.create(player: obj, team: ginos_giants, draft: draft1)

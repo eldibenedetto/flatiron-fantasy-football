@@ -1,0 +1,7 @@
+<%= @league.name %>
+
+<% @teams.each do |team| %>
+  <ul>
+  <%= (link_to team.name, league_team_path(team)) + " - " + (link_to team.user.username, user_path(team.user)) %>
+  </ul>
+<% end %>
