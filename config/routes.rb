@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :users
   resources :leagues do
     resources :teams do
+      get '/position_select', to: 'players#position_select', as: 'position_select'
+      post '/', to: 'players#position_submit'
       resources :transactions
     end
     resources :drafts

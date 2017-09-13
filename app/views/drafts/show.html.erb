@@ -2,6 +2,8 @@
 
 <h3> Draft Time: <%= @draft.draft_time %> </h3>
 
-<% if current_user == @draft.league.owner %>
-<%= link_to "Start Draft", start_draft_path(@draft.league,@draft ) %>
+<% if current_user == @draft.league.owner && !@draft.closed%>
+<%= link_to "Start Draft", start_draft_path(@draft.league,@draft) %>
+<% elsif @draft.closed %>
+<h4> The Draft is CLOSED </h4>
 <% end %>

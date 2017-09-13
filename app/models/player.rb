@@ -4,9 +4,7 @@ class Player < ApplicationRecord
   has_many :teams, through: :transactions
 
   def self.available?
-    self.all.select do |player|
-      player.available
-    end
+    self.where("available = ?", true)
   end
 
 end

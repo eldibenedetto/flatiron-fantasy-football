@@ -1,10 +1,11 @@
 <h1> <%= @league.name %> Draft Page </h1>
 
 <h4> Draft Order </h4>
-<ul>
-  <% @league.teams.each do |team| %>
+<ol>
+  <% session[:draft_order].each do |team_id| %>
+      <% team = Team.find(team_id) %>
   <li> <%= team.user.username %> </li>
   <% end %>
-</ul>
+</ol>
 
-<%= button_to "1st Overall Pick", new_league_team_transaction_path(@league, @league.teams.first), method: :get %> 
+<%= button_to "1st Overall Pick", league_team_position_select_path(@league, @first_team), method: :get %>

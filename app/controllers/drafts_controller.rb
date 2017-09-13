@@ -24,14 +24,18 @@ class DraftsController < ApplicationController
   def start_draft
     @draft= Draft.find(params[:id])
     @league = @draft.league
-    session[:user_turn] = 1
-    # session[:round_number] = 1
+    session[:draft_order] = @draft.draft_order(@league)
+    @first_team = Team.find(session[:draft_order][0])
+    session[:user_turn] = 0
+    session[:round_number] = 1
   end
 
   def end_draft
     session.delete :user_turn
     session.delete :round_number
     Player.update_all(available: true)
+    @draft= Draft.find(params[:id])
+    @draft.update(closed: true)
   end
 
   private

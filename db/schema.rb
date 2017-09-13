@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911213558) do
+ActiveRecord::Schema.define(version: 20170913170959) do
 
   create_table "drafts", force: :cascade do |t|
     t.datetime "draft_time"
     t.integer "league_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "closed", default: false
   end
 
   create_table "leagues", force: :cascade do |t|

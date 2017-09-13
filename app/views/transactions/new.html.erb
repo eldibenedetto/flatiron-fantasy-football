@@ -4,7 +4,7 @@
 <%= form_for [@league, @team, @transaction] do |f| %>
 
   <%= f.label :player %>
-  <%= f.collection_select :player_id, Player.available?, :id, :name %>
+  <%= f.collection_select :player_id, Player.available?.where("position = '#{@position}'"), :id, :name %>
   <%= f.submit "Draft Player" %>
 
 <% end %>

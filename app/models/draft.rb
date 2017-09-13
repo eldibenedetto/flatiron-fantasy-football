@@ -5,4 +5,10 @@ class Draft < ApplicationRecord
   validates :draft_time, presence: true
   validates :league_id, presence: true
 
+
+  def draft_order(league)
+    league.team_ids.shuffle
+  end
+
+
 end

@@ -1,0 +1,17 @@
+<h1> <%= @team.name %>'s Pick </h1>
+<h4> <%= @team.user.username %> </h4>
+
+<%= form_tag [@league, @team] do %>
+  <%= radio_button_tag(:position, "QB") %>
+  <label for = "position_QB"> QB </label> <br>
+  <%= radio_button_tag(:position, "RB")%>
+  <label for = "position_RB"> RB </label> <br>
+  <%= radio_button_tag(:position, "WR")%>
+  <label for = "position_WR"> WR </label> <br>
+  <%= radio_button_tag(:position, "TE")%>
+  <label for = "position_TE"> TE </label> <br>
+  <%= radio_button_tag(:position, "K")%>
+  <label for = "position_K"> K </label> <br>
+  <%= submit_tag "Select Position" %>
+
+<% end %>
