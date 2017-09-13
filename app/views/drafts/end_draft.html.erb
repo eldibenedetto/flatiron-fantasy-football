@@ -1,1 +1,39 @@
-<h1> The Draft is closed </h1>
+<h1> Done! The draft is closed.</h1>
+
+<h4> Draft Summary: </h1>
+
+
+<ol>
+  <h4> <%= @league.teams.first.name %> </h4>
+  <% @league.teams.first.players.each do |player|%>
+  <li>  <%= player.position + " - " + player.name %>
+    <% end %>
+  </ol>
+
+  <ol>
+    <h4> <%= @league.teams.second.name %> </h4>
+    <% @league.teams.second.players.each do |player|%>
+    <li>  <%= player.position + " - " + player.name %>
+      <% end %>
+    </ol>
+
+    <ol>
+      <h4> <%= @league.teams.third.name %> </h4>
+      <% @league.teams.third.players.each do |player|%>
+      <li>  <%= player.position + " - " + player.name %>
+        <% end %>
+      </ol>
+
+      <ol>
+        <h4> <%= @league.teams.fourth.name %> </h4>
+        <% @league.teams.fourth.players.each do |player|%>
+        <li>  <%= player.position + " - " + player.name %>
+          <% end %>
+        </ol>
+
+        <ol>
+          <h4> <%= @league.teams.fifth.name %> </h4>
+          <% @league.teams.fifth.players.each do |player|%>
+          <li>  <%= player.position + " - " + player.name %>
+            <% end %>
+          </ol>

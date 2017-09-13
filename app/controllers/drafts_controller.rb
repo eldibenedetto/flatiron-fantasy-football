@@ -35,6 +35,7 @@ class DraftsController < ApplicationController
     session.delete :round_number
     Player.update_all(available: true)
     @draft= Draft.find(params[:id])
+    @league= @draft.league
     @draft.update(closed: true)
   end
 
