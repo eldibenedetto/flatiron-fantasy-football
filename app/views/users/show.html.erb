@@ -18,6 +18,15 @@
   <% end %>
 </div>
 
+<%= week_calendar events: @drafts do |date, drafts| %>
+  <%= date.strftime("%m/%d") %>
+  <% drafts.each do |draft| %>
+    <div>
+      <%= draft.league.name %>
+    </div>
+  <% end %>
+<% end %>
+
 <% if current_user.id == @user.id %>
   <%= button_to "Create a League", new_league_path, method: :get%>
 <% end %>

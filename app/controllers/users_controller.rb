@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @leagues = @user.leagues
+    @drafts = @user.drafts
     @teams = Team.where("user_id = '#{@user.id}'")
   end
 

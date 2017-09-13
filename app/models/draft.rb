@@ -10,5 +10,7 @@ class Draft < ApplicationRecord
     league.team_ids.shuffle
   end
 
-
+  def start_time
+      self.draft_time
+  end
 end
