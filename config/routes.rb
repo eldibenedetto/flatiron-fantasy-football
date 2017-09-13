@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   get "/leagues/league_id/drafts/:id/start_draft", to: 'drafts#start_draft', as: 'start_draft'
+  get "/leagues/league_id/drafts/:id/end_draft", to: 'drafts#end_draft', as: 'end_draft'
 end

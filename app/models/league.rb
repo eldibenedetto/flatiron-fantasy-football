@@ -9,5 +9,12 @@ class League < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :owner_id, presence: true
+  #
+  # Select players.id from players where players.id not in (
+  # select transactions.player_id
+  # from leagues
+  # join teams on leagues.id = teams.league_id
+  # join transactions on teams.id = transactions.team_id
+  # where teams.league_id = #{self.id})
 
 end

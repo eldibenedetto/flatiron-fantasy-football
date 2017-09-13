@@ -1,17 +1,15 @@
 <h1><%= @team.name %></h1>
 <h4>League: <%= link_to @league.name, @league %>
-  <h4>User: <%= link_to @user.username, @user %>
-<% #iterate through team.players & print player.position: player.name %>
+  <h4>User: <%= link_to @user.username, @user %> </h4>
+<% if @team.players.empty?%>
+  <%= "You're team hasn't been drafted yet" %>
+<% else %>
+Players: 
 <ul>
-  <li> QB </li>
-  <li> QB </li>
-  <li> RB </li>
-  <li> RB </li>
-  <li> WR </li>
-  <li> WR </li>
-  <li> TE </li>
-  <li> F </li>
-  <li> K </li>
+    <% @team.players.each do |player| %>
+      <li> <%= player.name %> </li>
+      <% end %>
+  <% end %>
 </ul>
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911214324) do
+ActiveRecord::Schema.define(version: 20170911213558) do
 
   create_table "drafts", force: :cascade do |t|
     t.datetime "draft_time"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170911214324) do
     t.string "type_of_transaction", default: "drafted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "draft_id"
   end
 
   create_table "users", force: :cascade do |t|

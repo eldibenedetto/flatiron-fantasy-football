@@ -10,11 +10,11 @@
 
   <body>
     <% if session[:user_id] %>
-        <% @user = User.find(session[:user_id]) %>
-        <%= link_to "Logout", logout_path, method: :delete %>
+      <% @user = User.find(session[:user_id]) %>
         <%= link_to "Home", user_path(@user) %>
-        <%= User.find(session[:user_id]).username %>
-    <% end %>
+        <%= link_to "Logout", logout_path, method: :delete %>
+        Signed in as: <%= User.find(session[:user_id]).username %>
+      <% end %>
     <%= yield %>
   </body>
 </html>

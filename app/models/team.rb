@@ -6,4 +6,6 @@ class Team < ApplicationRecord
   has_many :players, through: :transactions
 
   validates :name, presence: true
+
+
 end

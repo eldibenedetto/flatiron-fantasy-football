@@ -16,3 +16,6 @@
   <%= button_to "Edit League", edit_league_path(@league), method: :get %>
   <%= button_to "Set Draft Time", new_league_draft_path(@league), method: :get %>
 <% end %>
+<% if @draft %>
+  <%= button_to "View Draft Page", league_draft_path(@league,@draft), method: :get %>
+  <% end %>
