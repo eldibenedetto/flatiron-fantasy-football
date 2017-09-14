@@ -1,10 +1,21 @@
-<h1> <%= @team.name %>'s Pick </h1>
-<h4> <%= @team.user.username %> </h4>
+<div class = "container text-center">
+  <h1> <%= @team.name %>'s Pick </h1>
+  <h3> User: <strong><%= @team.user.username %> </strong> </h3>
+  <div class= "row">
+  <div class= "col-lg-3">
+  </div>
+  <dic class = "col-lg-6">
+  <div class = "jumbotron">
+      <h4>Select a Player</h4>
+      <%= form_for [@league, @team, @transaction] do |f| %>
+        <p><%= f.collection_select :player_id, Player.available?.where("position = '#{@position}'"), :id, :name %> </p>
+        <%= f.submit "Draft Player", class: "btn btn-default btn-success btn-lg" %>
+      <% end %>
+</div>
 
-<%= form_for [@league, @team, @transaction] do |f| %>
+<div class= "col-lg-3">
+</div>
 
-  <%= f.label :player %>
-  <%= f.collection_select :player_id, Player.available?.where("position = '#{@position}'"), :id, :name %>
-  <%= f.submit "Draft Player" %>
-
-<% end %>
+</div>
+</div>
+</div>

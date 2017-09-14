@@ -1,29 +1,53 @@
-<h1> Login </h1>
-<%= form_tag login_path do %>
-<div>
-<%= label_tag "Username" %>
-<%= text_field_tag 'user[username]' %>
-</div>
-<div>
-<%= label_tag "Password"%>
-<%= password_field_tag 'user[password]' %>
-</div>
-<%= submit_tag "Login" %>
-<% end %>
+<style>
+.jumbotron {
+  background-image: url(https://static.pexels.com/photos/35655/football-american-game-runner.jpg);
+  background-size: cover;
+  background-position: -50px;
+}
 
-<h1> Sign Up </h1>
-<%= form_for @user do |f| %>
-<div>
-<%= f.label :username %>
-<%= f.text_field :username %>
+.login-signup {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding-left: 25px;
+}
+</style>
+
+<div class="jumbotron row">
+
+    <div class="col-lg-6">
+      <div class="login-signup">
+    <h1> Login </h1>
+      <%= form_tag login_path do %>
+
+
+        <%= label_tag "Username" %><br>
+        <%= text_field_tag 'user[username]' %><br>
+        <br>
+        <%= label_tag "Password"%><br>
+        <%= password_field_tag 'user[password]' %><br>
+        <br>
+        <%= submit_tag "Login", class: "btn btn-default btn-md" %><br>
+        <% end %>
+      </div>
+    </div>
+
+
+  <div class="col-lg-6">
+    <div class="login-signup">
+      <h1> Sign Up </h1>
+      <%= form_for @user do |f| %>
+
+      <%= f.label :username %><br>
+      <%= f.text_field :username %><br>
+
+
+      <%= f.label :email %><br>
+      <%= f.text_field :email%><br>
+
+      <%= f.label :password %><br>
+      <%= f.password_field :password %><br>
+
+      <%= f.submit "Sign Up", class: "btn btn-default btn-md" %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<div>
-<%= f.label :email %>
-<%= f.text_field :email%>
-</div>
-<div>
-<%= f.label :password %>
-<%= f.password_field :password %>
-</div>
-<%= f.submit "Sign Up" %>
-<% end %>

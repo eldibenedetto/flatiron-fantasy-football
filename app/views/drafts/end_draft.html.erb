@@ -1,39 +1,68 @@
+<style>
+  h1 {text-align: center;}
+  h3 {text-align: center;}
+
+</style>
+
 <h1> Done! The draft is closed.</h1>
 
-<h4> Draft Summary: </h1>
+<h3> Draft Summary: </h3>
 
+<div class = "container text-center">
+  <div class = "row">
+    <div class = "col-lg-4">
+      <div class = "jumbotron">
+        <h4> <%= @league.teams.first.name %> </h4>
+        <% @league.teams.first.players.each do |player|%>
+        <p style = "font-size: 18px;"> <%= player.position + " - " + player.name %> </p>
+          <% end %>
+    </div>
+  </div>
 
-<ol>
-  <h4> <%= @league.teams.first.name %> </h4>
-  <% @league.teams.first.players.each do |player|%>
-  <li>  <%= player.position + " - " + player.name %>
-    <% end %>
-  </ol>
+    <div class = "col-lg-4">
+      <div class = "jumbotron">
+        <h4> <%= @league.teams.second.name %> </h4>
+        <% @league.teams.second.players.each do |player|%>
+        <p style = "font-size: 18px;"> <%= player.position + " - " + player.name %> </p>
+          <% end %>
+    </div>
+    </div>
 
-  <ol>
-    <h4> <%= @league.teams.second.name %> </h4>
-    <% @league.teams.second.players.each do |player|%>
-    <li>  <%= player.position + " - " + player.name %>
-      <% end %>
-    </ol>
+    <div class = "col-lg-4">
+      <div class = "jumbotron">
+        <h4> <%= @league.teams.third.name %> </h4>
+        <% @league.teams.third.players.each do |player|%>
+         <p style = "font-size: 18px;"> <%= player.position + " - " + player.name %> </p>
+          <% end %>
+      </div>
+    </div>
+  </div>
 
-    <ol>
-      <h4> <%= @league.teams.third.name %> </h4>
-      <% @league.teams.third.players.each do |player|%>
-      <li>  <%= player.position + " - " + player.name %>
-        <% end %>
-      </ol>
-
-      <ol>
+  <div class = "row">
+    <div class = "col-lg-1">
+    </div>
+    <div class = "col-lg-4">
+      <div class = "jumbotron">
         <h4> <%= @league.teams.fourth.name %> </h4>
         <% @league.teams.fourth.players.each do |player|%>
-        <li>  <%= player.position + " - " + player.name %>
+        <p style = "font-size: 18px;"> <%= player.position + " - " + player.name %></p>
           <% end %>
-        </ol>
 
-        <ol>
+        </div>
+      </div>
+
+      <div class = "col-lg-2">
+      </div>
+
+      <div class= "col-lg-4">
+        <div class = "jumbotron">
           <h4> <%= @league.teams.fifth.name %> </h4>
           <% @league.teams.fifth.players.each do |player|%>
-          <li>  <%= player.position + " - " + player.name %>
+          <p style = "font-size: 18px;"> <%= player.position + " - " + player.name %> <p>
             <% end %>
-          </ol>
+        </div>
+        </div>
+      <div class = "col-lg-1">
+      </div>
+  </div>
+</div>

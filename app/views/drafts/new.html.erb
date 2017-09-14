@@ -1,5 +1,26 @@
-<%= form_for [@league, @draft] do |f| %>
-<%= f.label :draft_time %>
-<%= f.datetime_field :draft_time %>
-<%= f.submit %>
-<% end %>
+<style>
+  .jumbotron {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+</style>
+
+<div class = "container text-center">
+  <h1> <strong>Set Draft Time</strong> </h1>
+  <div class= "row">
+  <div class= "col-lg-3">
+  </div>
+  <dic class = "col-lg-6">
+  <div class = "jumbotron">
+    <%= form_for [@league, @draft] do |f| %>
+    <p><%= f.datetime_field :draft_time %></p>
+    <%= f.submit class: " btn btn-success btn-lg"%>
+    <% end %>
+</div>
+
+<div class= "col-lg-3">
+</div>
+
+</div>
+</div>
+</div>

@@ -1,17 +1,38 @@
-<h1> <%= @team.name %>'s Pick </h1>
-<h4> <%= @team.user.username %> </h4>
+<style>
+  .jumbotron {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+</style>
 
-<%= form_tag [@league, @team] do %>
-  <%= radio_button_tag(:position, "QB") %>
-  <label for = "position_QB"> QB </label> <br>
-  <%= radio_button_tag(:position, "RB")%>
-  <label for = "position_RB"> RB </label> <br>
-  <%= radio_button_tag(:position, "WR")%>
-  <label for = "position_WR"> WR </label> <br>
-  <%= radio_button_tag(:position, "TE")%>
-  <label for = "position_TE"> TE </label> <br>
-  <%= radio_button_tag(:position, "K")%>
-  <label for = "position_K"> K </label> <br>
-  <%= submit_tag "Select Position" %>
+<div class = "container text-center">
+  <h1> <%= @team.name %>'s Pick </h1>
+  <h3> User: <strong><%= @team.user.username %> </strong> </h3>
+  <div class= "row">
+  <div class= "col-lg-3">
+  </div>
+  <dic class = "col-lg-6">
+  <div class = "jumbotron">
+      <h4>Select the Position You'd Like to Draft</h4>
+    <%= form_tag [@league, @team] do %>
+      <p><%= radio_button_tag(:position, "QB") %>
+      <label for = "position_QB"> QB </label></p>
+      <p><%= radio_button_tag(:position, "RB")%>
+      <label for = "position_RB"> RB </label></p>
+      <p><%= radio_button_tag(:position, "WR")%>
+      <label for = "position_WR"> WR </label></p>
+      <p><%= radio_button_tag(:position, "TE")%>
+      <label for = "position_TE"> TE </label></p>
+      <p><%= radio_button_tag(:position, "K")%>
+      <label for = "position_K"> K </label></p>
+      <%= submit_tag "Select Position", class: "btn btn-danger btn-lg" %>
 
-<% end %>
+    <% end %>
+</div>
+
+<div class= "col-lg-3">
+</div>
+
+</div>
+</div>
+</div>

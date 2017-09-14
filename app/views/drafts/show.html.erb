@@ -1,9 +1,28 @@
-<h1><%= @draft.league.name %> </h1>
+<style>
 
-<h3> Draft Time: <%= @draft.draft_time %> </h3>
+  img {
+    padding-top: 25px;
+    border-radius: 10px;
+  }
 
-<% if current_user == @draft.league.owner && !@draft.closed%>
-<%= link_to "Start Draft", start_draft_path(@draft.league, @draft) %>
-<% elsif @draft.closed %>
-<h4> The Draft is CLOSED </h4>
-<% end %>
+  h3 { display: inline; }
+  p { display: inline; font-size: 20px;}
+
+  button {
+    padding-top: 10px;
+  }
+</style>
+
+<div class="container text-center">
+  <h1><strong><%= @draft.league.name %></strong></h1>
+
+  <h3><strong> Draft Time:</strong></h3> <p><%= @draft.draft_time.strftime("%m/%d %I:%M %p") %></p><br>
+<br>
+  <% if current_user == @draft.league.owner && !@draft.closed%>
+      <%= button_to "Start Draft", start_draft_path(@draft.league, @draft), method: :get, class: "btn btn-danger btn-lg" %>
+  <% elsif @draft.closed %>
+  <h4> The Draft is <strong>CLOSED</strong> </h4>
+  <% end %>
+
+  <img src="https://cbstailgatefan.files.wordpress.com/2015/04/nfl-draft-roger-goodell.jpg?w=625">
+</div>

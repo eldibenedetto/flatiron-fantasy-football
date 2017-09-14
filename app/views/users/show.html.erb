@@ -1,32 +1,44 @@
-<h1><%= @user.username %></h1>
 
-<div class= "index">
-  <h3>My Leagues </h3>
-  <% @leagues.each do |league| %>
-    <ul>
-    <%= link_to league.name, league_path(league) %>
-  </ul>
-  <% end %>
+<style>
+  .center-align {
+    text-align: center;
+  }
+
+
+</style>
+<h1 class = "center-align"><%= @user.username %></h1>
+<div class = "container" >
+    <div class = "outter" >
+      <div class="jumbotron row">
+        <div class="col-lg-6 text-center">
+          <h3>My Leagues</h3>
+          <% @leagues.each do |league| %>
+            <p><%= link_to league.name, league_path(league) %><p>
+          <% end %>
+          <% if current_user.id == @user.id %>
+            <%= button_to "Create a League", new_league_path, method: :get, class: "btn btn-default btn-sm"%>
+          <% end %>
+        </div>
+
+        <div class="col-lg-6 text-center">
+          <h3>My Teams</h3>
+          <% @teams.each do |team| %>
+            <p><%= link_to team.name, league_team_path(team.league, team) %> </p>
+          <% end %>
+        </div>
+
+
+
+      </div>
+
+    <div class= "calendar">
+    <%= week_calendar events: @drafts do |date, drafts| %>
+      <%= date.strftime("%m/%d") %>
+      <% drafts.each do |draft| %>
+        <div>
+          <%= draft.league.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
-<div class= "index">
-  <h3>My Teams </h3>
-  <% @teams.each do |team| %>
-    <ul>
-    <%= link_to team.name, league_team_path(team.league, team) %>
-  </ul>
-  <% end %>
-</div>
-
-<%= week_calendar events: @drafts do |date, drafts| %>
-  <%= date.strftime("%m/%d") %>
-  <% drafts.each do |draft| %>
-    <div>
-      <%= draft.league.name %>
-    </div>
-  <% end %>
-<% end %>
-
-<% if current_user.id == @user.id %>
-  <%= button_to "Create a League", new_league_path, method: :get%>
-<% end %>

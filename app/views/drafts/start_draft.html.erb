@@ -1,11 +1,31 @@
-<h1> <%= @league.name %> Draft Page </h1>
+<style>
+  .jumbotron {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+</style>
 
-<h4> Draft Order </h4>
-<ol>
-  <% session[:draft_order].each do |team_id| %>
-      <% team = Team.find(team_id) %>
-  <li> <%= team.user.username %> </li>
-  <% end %>
-</ol>
+<div class = "container text-center">
+  <h1> <strong><%= @league.name %> Draft Page</strong> </h1>
+  <div class= "row">
+  <div class= "col-lg-4">
+  </div>
+  <dic class = "col-lg-4">
+  <div class = "jumbotron">
+    <h3 style="text-decoration: underline;"><strong> Draft Order</strong> </h3>
+    <ol class="text-left">
+      <% session[:draft_order].each do |team_id| %>
+          <% team = Team.find(team_id) %>
+      <li><p style="font-size: 14;"> <%= team.user.username %> </p></li>
+      <% end %>
+    </ol>
 
-<%= button_to "1st Overall Pick", league_team_position_select_path(@league, @first_team), method: :get %>
+    <%= button_to "1st Overall Pick", league_team_position_select_path(@league, @first_team), method: :get, class: "btn btn-danger btn-lg" %>
+</div>
+
+<div class= "col-lg-4">
+</div>
+
+</div>
+</div>
+</div>
