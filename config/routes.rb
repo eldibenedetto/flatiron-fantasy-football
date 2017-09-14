@@ -4,14 +4,15 @@ Rails.application.routes.draw do
   root 'application#welcome', as: 'welcome'
   post '/login', to: 'sessions#login', as: 'login'
   delete '/logout', to: 'sessions#logout', as: 'logout'
-  resources :users
+  resources :users, only: [:create, :show]
   resources :leagues do
-    resources :teams do
+    resources :comments, only: :create
+    resources :teams, only: [:show, :edit, :update] do
       get '/position_select', to: 'players#position_select', as: 'position_select'
       post '/', to: 'players#position_submit'
-      resources :transactions
+      resources :transactions, only: [:new, :create]
     end
-    resources :drafts
+    resources :drafts, only: [:new, :create, :show]
   end
 
   get "/leagues/:league_id/drafts/:id/start_draft", to: 'drafts#start_draft', as: 'start_draft'

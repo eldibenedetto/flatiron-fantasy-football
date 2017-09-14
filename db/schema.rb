@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913170959) do
+ActiveRecord::Schema.define(version: 20170914202150) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "league_id"
+    t.string "content"
+  end
 
   create_table "drafts", force: :cascade do |t|
     t.datetime "draft_time"
@@ -56,7 +62,6 @@ ActiveRecord::Schema.define(version: 20170913170959) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
   end
 
 end

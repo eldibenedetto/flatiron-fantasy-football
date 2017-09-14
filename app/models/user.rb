@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :owner_leagues, class_name: "League", foreign_key: :owner_id
   has_many :transactions, through: :teams
   has_many :players, through: :transactions
+  has_many :commments
 
   validates :username, uniqueness: true
   has_secure_password

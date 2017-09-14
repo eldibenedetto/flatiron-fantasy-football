@@ -4,6 +4,7 @@
     text-align: center;
   }
 
+  h3 { text-align: center;}
 
 </style>
 <h1 class = "center-align"><%= @user.username %></h1>
@@ -28,15 +29,15 @@
         </div>
 
 
-
       </div>
 
     <div class= "calendar">
+    <h3> Upcoming Drafts </h3>
     <%= week_calendar events: @drafts do |date, drafts| %>
       <%= date.strftime("%m/%d") %>
       <% drafts.each do |draft| %>
-        <div>
-          <%= draft.league.name %>
+          <div>
+          <strong><%= draft.league.name %></strong>
         </div>
       <% end %>
     <% end %>

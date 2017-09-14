@@ -3,14 +3,8 @@
     text-align: center;
   }
 
-  .container {
-    width: 35%;
-    padding-top: 20px;
-  }
-
-  .jumbotron {
-    padding-top: 10px;
-    padding-bottom: 25px;
+  h4 {
+    color: red;
   }
 
   .link-style {
@@ -20,32 +14,79 @@
 </style>
 
 
-<h1> <%= @league.name %> </h1>
-<div class="container text-center">
-  <div class="jumbotron">
-    <h2> Draft Time: </h2>
-      <% if @draft %>
-      <h4> <%= @draft.draft_time %> </h4>
-      <% end %>
+<h1> <strong><%= @league.name %></strong> </h1>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-lg-1">
     </div>
+    <div class = "col-lg-4">
+      <div class="jumbotron">
+        <h2> Draft Time: </h2>
+          <% if @draft %>
+          <h4> <%= @draft.draft_time.strftime("%m/%d %H:%M%P") %> </h4>
+          <% else %>
+          <h3 style="color: red;"> Not Scheduled </h3>
+          <% end %>
+        </div>
+      </div>
+
+          <div class="col-lg-2">
+          </div>
+
+    <div class="col-lg-4">
+      <div class= "jumbotron">
+        <% if @league.users.include?(current_user) %>
+          <h3> Post a comment </h3>
+          <%= form_for [@league, @comment] do |f| %>
+          <%= f.text_area :content %> <br>
+          <%= f.submit "Post Comment", class: "btn btn-default btn-md" %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+      <div class="col-lg-1">
+      </div>
+    </div>
+  </div>
+</div>
 
 
-    <div class="jumbotron">
-      <h2> Teams: </h2>
-      <% @teams.each do |team| %>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-4">
+        <div class="jumbotron">
+          <h2> Teams: </h2>
+          <% @teams.each do |team| %>
+              <p><%= link_to team.name, league_team_path(@league,team), class: "link-style"%> - <%= link_to team.user.username, user_path(team.user), class: "link-style" %></p>
+          <% end %>
+          <% if current_user == @league.owner %>
+            <%= button_to "Edit League", edit_league_path(@league), method: :get, class: "btn btn-default btn-md"  %>
+            <% unless @draft %>
+            <%= button_to "Set Draft Time", new_league_draft_path(@league), method: :get, class: "btn btn-default btn-md"  %>
+            <% end %>
+          <% end %>
+          <% if @draft %>
+            <%= button_to "View Draft Page", league_draft_path(@league,@draft), method: :get, class: "btn btn-default btn-md" %>
+            <% end %>
+        </div>
+      </div>
 
-          <p><%= link_to team.name, league_team_path(@league,team), class: "link-style"%> - <%= link_to team.user.username, user_path(team.user), class: "link-style" %></p>
+      <div class="col-lg-2">
+      </div>
 
-      <% end %>
+      <div class="col-lg-4">
+        <div class= 'jumbotron'>
+          <h3> Comments: </h3>
+          <% @league.comments.each do |comment| %>
+          <%= link_to comment.user.username, user_path(comment.user)%>: <br>
+          <%= comment.content %>
+          <% end %>
+        </div>
+      </div>
 
-      <% if current_user == @league.owner %>
-        <%= button_to "Edit League", edit_league_path(@league), method: :get, class: "btn btn-default btn-md"  %>
-        <% unless @draft %>
-        <%= button_to "Set Draft Time", new_league_draft_path(@league), method: :get, class: "btn btn-default btn-md"  %>
-        <% end %>
-      <% end %>
-      <% if @draft %>
-        <%= button_to "View Draft Page", league_draft_path(@league,@draft), method: :get, class: "btn btn-default btn-md" %>
-        <% end %>
+      <div class="col-lg-1">
+      </div>
     </div>
   </div>

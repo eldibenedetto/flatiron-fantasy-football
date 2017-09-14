@@ -27,6 +27,7 @@ class LeaguesController < ApplicationController
     @league = League.find(params[:id])
     @teams = @league.teams
     @draft = @league.draft
+    @comment = Comment.new
   end
 
   def edit

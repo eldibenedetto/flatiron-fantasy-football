@@ -1,5 +1,7 @@
 class TransactionsController < ApplicationController
 
+  before_action :require_login
+
   def new
     @transaction = Transaction.new
     @team = Team.find(params[:team_id])
