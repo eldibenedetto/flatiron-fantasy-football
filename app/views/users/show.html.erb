@@ -14,7 +14,11 @@
         <div class="col-lg-6 text-center">
           <h3>My Leagues</h3>
           <% @leagues.each do |league| %>
-            <p><%= link_to league.name, league_path(league) %><p>
+            <p><%= link_to league.name, league_path(league) %>
+            <% if league.owner == current_user %>
+              *
+            <% end %>
+          </p>
           <% end %>
           <% if current_user.id == @user.id %>
             <%= button_to "Create a League", new_league_path, method: :get, class: "btn btn-default btn-sm"%>

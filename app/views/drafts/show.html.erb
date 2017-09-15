@@ -22,6 +22,9 @@
       <%= button_to "Start Draft", start_draft_path(@draft.league, @draft), method: :get, class: "btn btn-danger btn-lg" %>
   <% elsif @draft.closed %>
   <h4> The Draft is <strong>CLOSED</strong> </h4>
+  <%= button_to "Go Back to League Page", league_path(@draft.league), method: :get, class: "btn btn-default btn-lg" %>
+  <% else %>
+    <%= button_to "Go Back to League Page", league_path(@draft.league), method: :get, class: "btn btn-default btn-lg" %>
   <% end %>
 
   <img src="https://cbstailgatefan.files.wordpress.com/2015/04/nfl-draft-roger-goodell.jpg?w=625">

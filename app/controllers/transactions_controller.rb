@@ -25,7 +25,7 @@ class TransactionsController < ApplicationController
     end
     number = session[:user_turn]
     @team = Team.find(session[:draft_order][number])
-    if session[:round_number] <=2
+    if session[:round_number] <= 2
       redirect_to league_team_position_select_path(@league, @team)
     else
       redirect_to end_draft_path(@league,@league.draft)

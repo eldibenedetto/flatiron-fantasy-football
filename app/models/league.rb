@@ -11,6 +11,7 @@ class League < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :owner_id, presence: true
+  validates :name, length: {maximum: 45}
   #
   # Select players.id from players where players.id not in (
   # select transactions.player_id

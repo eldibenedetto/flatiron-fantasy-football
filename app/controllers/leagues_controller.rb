@@ -44,6 +44,24 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def destroy
+    @league = League.find(params[:id])
+    if @league.teams
+      @league.teams.destroy_all
+    end
+    if @league.transactions
+      @league.transactions.destroy_all
+    end
+    if @league.comments
+      @league.comments.destroy_all
+    end
+    if @league.draft
+      @league.draft.destroy
+    end
+    @league.destroy
+    redirect_to user_path(current_user)
+  end
+
 
   private
 

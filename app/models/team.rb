@@ -6,6 +6,7 @@ class Team < ApplicationRecord
   has_many :players, through: :transactions
 
   validates :name, presence: true
+  validates :name, length: {maximum: 100}
 
 
 end

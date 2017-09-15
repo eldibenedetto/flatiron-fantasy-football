@@ -791,6 +791,17 @@ ks.each do |name|
   Player.create(name: k_name, position: "K")
 end
 
+User.create(username: "Natalie", password: "12345")
+User.create(username: "Gino", password: "12345")
+User.create(username: "Marco", password: "12345")
+User.create(username: "Jen", password: "12345")
+User.create(username: "Max", password: "12345")
+User.create(username: "Alex", password: "12345")
+User.create(username: "Rachel", password: "12345")
+
+
+
+
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :commments
 
   validates :username, uniqueness: true
+  validates :username, length: {maximum: 35}
   has_secure_password
 
 end

@@ -10,7 +10,7 @@ class DraftsController < ApplicationController
     @league = League.find(params[:league_id])
     @draft.league = @league
     if @draft.save
-      redirect_to league_draft_path(@league, @draft)
+      redirect_to @league
     else
       redirect_to new_league_draft_path
     end
@@ -28,6 +28,12 @@ class DraftsController < ApplicationController
     @first_team = Team.find(session[:draft_order][0])
     session[:user_turn] = 0
     session[:round_number] = 1
+    if @league.transactions
+      @league.teams.each do |team|
+        team.transactions.destroy_all
+      end
+    Player.update_all(available: true)
+    end
   end
 
   def end_draft
